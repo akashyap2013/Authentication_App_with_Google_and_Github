@@ -11,7 +11,7 @@ export default function Layout( { children }){
                     <div className={styles.cloud_one}></div>
                     <div className={styles.cloud_two}></div>
                 </div>
-                <div className="right flex flex-col justify-evenly bg-gray-500">
+                <div className="right flex flex-col justify-evenly">
                     <div className="text-center py-10">
                         {children}
                     </div>
