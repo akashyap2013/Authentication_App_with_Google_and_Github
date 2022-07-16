@@ -22,3 +22,16 @@
 .button_custom{
  @apply w-full border py-3 flex justify-center gap-2 hover:bg-gray-200;
 }
+
+.input_text + *{
+    color: #CBD5E1;
+}
+
+.input_text:focus + *{
+    color: #6366f1;
+}
+
+.input_text:not([type=email]) ~ span:hover *{
+    color: #6366f1;
+    cursor: pointer;
+}
