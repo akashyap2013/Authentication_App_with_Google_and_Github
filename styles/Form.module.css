@@ -1,0 +1,24 @@
+
+.input_group{
+    @apply flex border rounded-xl;
+    position: relative;
+}
+
+.input_text{
+    @apply w-full py-4 px-6 border rounded-xl bg-slate-50;
+    @apply focus:outline-none border-none
+}
+
+.button{
+    @apply w-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-md;
+    @apply py-3 text-gray-50 text-lg
+}
+
+.button:hover{
+    @apply bg-gradient-to-r from-gray-50 to-gray-100 border-blue-500;
+    @apply text-gray-700 border;
+}
+
+.button_custom{
+ @apply w-full border py-3 flex justify-center gap-2 hover:bg-gray-200;
+}
