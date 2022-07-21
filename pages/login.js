@@ -6,10 +6,22 @@ import Image from 'next/image'
 import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
 import { useState } from 'react';
 import { signIn, signOut } from "next-auth/react"
+import { useFormik } from 'formik';
 
 export default function Login(){
 
     const [show, setShow] = useState(false)
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: ''
+        },
+        onSubmit
+    })
+
+    async function onSubmit(values){
+        console.log(values)
+    }
 
     // Google Handler function
     async function handleGoogleSignin(){
@@ -35,13 +47,14 @@ export default function Login(){
             </div>
 
             {/* form */}
-            <form className='flex flex-col gap-5'>
+            <form className='flex flex-col gap-5' onSubmit={formik.handleSubmit}>
                 <div className={styles.input_group}>
                     <input 
                     type="email"
                     name='email'
                     placeholder='Email'
                     className={styles.input_text}
+                    {...formik.getFieldProps('email')}
                     />
                     <span className='icon flex items-center px-4'>
                         <HiAtSymbol size={25} />
@@ -53,6 +66,7 @@ export default function Login(){
                     name='password'
                     placeholder='password'
                     className={styles.input_text}
+                    {...formik.getFieldProps('password')}
                     />
                      <span className='icon flex items-center px-4' onClick={() => setShow(!show)}>
                         <HiFingerPrint size={25} />
