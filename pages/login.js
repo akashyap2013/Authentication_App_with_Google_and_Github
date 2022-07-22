@@ -7,15 +7,18 @@ import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
 import { useState } from 'react';
 import { signIn, signOut } from "next-auth/react"
 import { useFormik } from 'formik';
+import login_validate from '../lib/validate';
 
 export default function Login(){
 
     const [show, setShow] = useState(false)
+    // formik hook
     const formik = useFormik({
         initialValues: {
             email: '',
             password: ''
         },
+        validate : login_validate,
         onSubmit
     })
 
@@ -59,7 +62,10 @@ export default function Login(){
                     <span className='icon flex items-center px-4'>
                         <HiAtSymbol size={25} />
                     </span>
+                   
                 </div>
+                {formik.errors.email && formik.touched.email ? <span className='text-rose-500'>{formik.errors.email}</span> : <></>}
+
                 <div className={styles.input_group}>
                     <input 
                     type={`${show ? "text" : "password"}`}
@@ -71,8 +77,10 @@ export default function Login(){
                      <span className='icon flex items-center px-4' onClick={() => setShow(!show)}>
                         <HiFingerPrint size={25} />
                     </span>
+                   
                 </div>
 
+                {formik.errors.password && formik.touched.password ? <span className='text-rose-500'>{formik.errors.password}</span> : <></>}
                 {/* login buttons */}
                 <div className="input-button">
                     <button type='submit' className={styles.button}>
