@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "formik": "^2.2.9",
     "next": "12.2.2",
     "next-auth": "^4.10.0",
