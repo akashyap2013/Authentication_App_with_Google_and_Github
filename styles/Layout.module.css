@@ -1,0 +1,5 @@
+.imgStyle {
+  @apply bg-gradient-to-r from-blue-500 to-indigo-500;
+  position: relative;
+  overflow: hidden;
+}
